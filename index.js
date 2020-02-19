@@ -98,7 +98,34 @@ const CustomSet = function() {
   this.intersection = function(otherSet) {
     let intersectionSet = new CustomSet()
     let firstSet = this.values()
-    
+    firstSet.forEach(function(ele) {
+      if(otherSet.has(ele)){
+        intersectionSet.add(ele)
+      }
+    })
+    return intersectionSet
+  }
+
+  // Difference
+  this.difference = function(otherSet) {
+    let differenceSet = new CustomSet()
+    let firstSet = this.values()
+    firstSet.forEach(function(ele) {
+      if(!otherSet.has(ele)){
+        differenceSet.add(ele)
+      }
+    })
+    return differenceSet
+  }
+
+  // Subset
+  this.subset = function(otherSet) {
+    let firstSet = this.values()
+    firstSet.every(function(ele) {
+      if(otherSet.has(ele)){
+        return true
+      }
+    })
   }
 }
 
