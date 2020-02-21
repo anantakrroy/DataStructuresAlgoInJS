@@ -121,13 +121,52 @@ const CustomSet = function() {
   // Subset
   this.subset = function(otherSet) {
     let firstSet = this.values()
-    firstSet.every(function(ele) {
-      if(otherSet.has(ele)){
-        return true
-      }
+    return firstSet.every(function(ele) {
+      return otherSet.has(ele)
     })
   }
 }
 
 let demoSet = new CustomSet()
-console.log(demoSet)
+let setA = new CustomSet()
+let setB = new CustomSet()
+setA.add(4)
+setB.add('a')
+setB.add(4)
+setB.add('cdf')
+setA.subset(setB)
+setA.intersection(setB).values()
+
+
+// Queues
+const Queue = function() {
+  collection = []
+
+  // Print queue
+  this.print = function() {
+    console.log(collection)
+  }
+
+  // Enqueue
+  this.enqueue = function(elem) {
+    return collection.push(elem)
+  }
+
+  // Dequeue
+  this.dequeue = function() {
+    return collection.shift()
+  }
+
+  // Front of queue
+  this.front = function() {
+    return collection[0]
+  }
+
+  // Empty or not
+  this.isEmpty = function() {
+    return (collection.length === 0)
+  }
+}
+
+let demoQ = new Queue()
+demoQ
