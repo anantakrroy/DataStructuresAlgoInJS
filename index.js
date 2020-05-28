@@ -301,6 +301,39 @@ class BST {
     }
     return current.data;
   }
+
+  // Find a value in the tree
+  find(data) {
+    let current = this.root;
+    while(current.data !== data) {
+      if(data < current.data){
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+      if(current === null) {
+        return null;
+      }
+    }
+    return current;
+  }
+
+  // If value is present in the tree
+  isPresent(data) {
+    let current = this.root;
+    console.log(current)
+    while(current) {
+      if(data === current.data) {
+        return true;
+      }
+      else if(data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false;
+  }
 }
 
 let firstBST = new BST();
@@ -314,5 +347,7 @@ firstBST.add(20)
 firstBST.add(45)
 firstBST.add(37)
 firstBST
+firstBST.find(13)
+firstBST.isPresent(123)
 // firstBST.findMin()
 // firstBST.findMax()
