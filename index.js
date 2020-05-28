@@ -277,15 +277,42 @@ class BST {
             searchTree(node.right);
           }
         } else {
-            return;
+            return null;
         }
-      }
-      return searchTree(node)
+      };
+      return searchTree(node);
     }
+  }
+
+  // Find min
+  findMin() {
+    let current = this.root;
+    while(current.left !== null){
+      current = current.left;
+    }
+    return current.data;
+  }
+
+  // Find max
+  findMax() {
+    let current = this.root;
+    while(current.right !== null){
+      current = current.right;
+    }
+    return current.data;
   }
 }
 
 let firstBST = new BST();
 firstBST.add(37)
 firstBST.add(24)
+firstBST.add(70)
+firstBST.add(13)
+firstBST.add(10)
+firstBST.add(59)
+firstBST.add(20)
+firstBST.add(45)
+firstBST.add(37)
 firstBST
+// firstBST.findMin()
+// firstBST.findMax()
